@@ -34,50 +34,50 @@ HireSense AI is a production-grade mock interview platform designed to elevate t
 HireSense AI utilizes a sophisticated RAG architecture to bridge the gap between static resume data and dynamic interview conversations.
 
 ```mermaid
-graph TD
-    subgraph Client_Layer["Frontend (React + Vite)"]
+flowchart TD
+    subgraph ClientLayer [Frontend React + Vite]
         UI[Dashboard / Profile]
         VR[Voice Recorder]
         AP[Audio Player]
         CE[Code Editor]
     end
 
-    subgraph Logic_Layer["Backend (Express MVC)"]
+    subgraph LogicLayer [Backend Express MVC]
         API[Search / Interview API]
         IS[Interview Manager]
         RS[Resume Processor]
         VS[Vector Sync Engine]
     end
 
-    subgraph AI_Core["AI Intelligence"]
+    subgraph AICore [AI Intelligence]
         Gemini[Gemini 3.1 Flash]
         Embed[text-embedding-004]
         Murf[Murf AI Voice]
         AAI[AssemblyAI STT]
     end
 
-    subgraph Data_Layer["Storage & Retrieval"]
+    subgraph DataLayer [Storage & Retrieval]
         Mongo[(MongoDB Atlas)]
         Endee[(Endee Vector DB)]
     end
 
     %% Workflow Connections
-    UI -->|PDF Upload| RS
-    RS -->|Semantic Chunking| VS
-    VS -->|Embeddings| Embed
-    VS -->|Index Vectors| Endee
+    UI --> RS
+    RS --> VS
+    VS --> Embed
+    VS --> Endee
     
-    UI -->|Launch Interview| IS
-    IS -->|Retrieve Context| Endee
-    Endee -->|Relevant Resume Chunks| IS
-    IS -->|Contextual Prompt| Gemini
-    Gemini -->|Personalized Question| IS
-    IS -->|Voice Synthesis| Murf
-    Murf -->|Audio Stream| AP
+    UI --> IS
+    IS --> Endee
+    Endee --> IS
+    IS --> Gemini
+    Gemini --> IS
+    IS --> Murf
+    Murf --> AP
     
-    VR -->|Candidate Audio| AAI
-    AAI -->|Transcribed Text| IS
-    IS -->|Memory Extraction| VS
+    VR --> AAI
+    AAI --> IS
+    IS --> VS
 ```
 
 ### 1. The Indexing Lifecycle
