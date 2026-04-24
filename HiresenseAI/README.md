@@ -2,101 +2,118 @@
 
 ![HireSense AI Hero Banner](file:///C:/Users/arjun/.gemini/antigravity/brain/67fe88b6-314a-4894-add6-be9588597bfa/hiresense_hero_banner_1777060956640.png)
 
-HireSense AI is a production-grade mock interview platform designed to help students and job seekers ace their technical interviews. By leveraging **Endee Vector Database** and **Gemini AI**, HireSense provides a personalized, context-aware interview experience that simulates real-world hiring processes.
+HireSense AI is a production-grade mock interview platform designed to elevate the job-seeking experience through semantic intelligence. By leveraging **Endee Vector Database** for long-term memory and **Gemini 3.1 Flash** for advanced reasoning, HireSense provides a deeply personalized, conversational interview experience that evolves with the user.
 
-## 🚀 Key Features
+## ✨ Key Features
 
-- **Semantic Resume Intelligence**: Upload your resume and let our AI index it into **Endee Vector Database** for semantic retrieval.
-- **RAG-Powered Personalization**: Questions are dynamically generated based on your specific projects, skills, and experience extracted from your resume.
-- **AI Memory Engine**: The platform tracks your performance across sessions, identifying weak topics and focusing future interviews on areas that need improvement.
-- **Conversational AI Interviewer**: Experience a natural flow with **voice-enabled** questions and real-time follow-ups using Murf AI and AssemblyAI.
-- **Detailed Feedback Analytics**: Receive comprehensive score cards on communication, technical depth, and problem-solving with actionable improvement tips.
+- **🎯 Semantic Profile Intelligence**: A dedicated profile management system that indexes resumes into **Endee Vector Database** using 768-dimensional embeddings for high-precision retrieval.
+- **🧠 RAG-Powered Interviewing**: Implements **Retrieval-Augmented Generation** to inject real-world resume context into interview prompts, ensuring questions are specifically tailored to your actual projects and skills.
+- **📈 Multi-Factor Role Matching**: Calculates a "Combined Role Fit" score by merging initial resume semantic analysis (40%) with actual interview performance metrics (60%).
+- **🗣️ Human-Centric Voice Flow**: Natural conversational interface powered by **Murf AI (TTS)** and **AssemblyAI (STT)**, allowing for seamless voice-to-voice mock interviews.
+- **🔄 AI Memory Engine**: Tracks performance trends across multiple sessions, detecting recurring weak areas and adapting future question difficulty accordingly.
+- **💻 Integrated Coding Environment**: Built-in code editor for technical rounds with real-time AI evaluation and feedback on code quality, correctness, and efficiency.
 
 ## 🏗️ Architecture & Workflow
 
-HireSense AI uses a clean MVC architecture and a robust **Retrieval-Augmented Generation (RAG)** pipeline to ensure every interview is unique to the candidate.
+HireSense AI utilizes a sophisticated RAG architecture to bridge the gap between static resume data and dynamic interview conversations.
 
 ```mermaid
 graph TD
-    subgraph Frontend
-        UI[React Dashboard]
+    subgraph Client_Layer["Frontend (React + Vite)"]
+        UI[Dashboard / Profile]
         VR[Voice Recorder]
         AP[Audio Player]
+        CE[Code Editor]
     end
 
-    subgraph Backend
-        API[Express API]
-        IS[Interview Service]
-        RS[Resume Service]
-        VS[Vector Service]
+    subgraph Logic_Layer["Backend (Express MVC)"]
+        API[Search / Interview API]
+        IS[Interview Manager]
+        RS[Resume Processor]
+        VS[Vector Sync Engine]
     end
 
-    subgraph AI_Services
-        Gemini[Gemini 2.5 Flash]
+    subgraph AI_Core["AI Intelligence"]
+        Gemini[Gemini 3.1 Flash]
         Embed[text-embedding-004]
-        Murf[Murf AI TTS]
+        Murf[Murf AI Voice]
+        AAI[AssemblyAI STT]
     end
 
-    subgraph Storage
+    subgraph Data_Layer["Storage & Retrieval"]
         Mongo[(MongoDB Atlas)]
         Endee[(Endee Vector DB)]
     end
 
-    %% Workflow
-    UI -->|Upload Resume| RS
-    RS -->|Extract Text| Embed
-    Embed -->|Vectors| VS
-    VS -->|Index Chunks| Endee
+    %% Workflow Connections
+    UI -->|PDF Upload| RS
+    RS -->|Semantic Chunking| VS
+    VS -->|Embeddings| Embed
+    VS -->|Index Vectors| Endee
     
-    UI -->|Start Interview| IS
-    IS -->|Query Context| Endee
-    Endee -->|Relevant Projects| IS
-    IS -->|Prompt + Context| Gemini
-    Gemini -->|Questions| IS
-    IS -->|Text-to-Speech| Murf
-    Murf -->|Voice| AP
+    UI -->|Launch Interview| IS
+    IS -->|Retrieve Context| Endee
+    Endee -->|Relevant Resume Chunks| IS
+    IS -->|Contextual Prompt| Gemini
+    Gemini -->|Personalized Question| IS
+    IS -->|Voice Synthesis| Murf
+    Murf -->|Audio Stream| AP
+    
+    VR -->|Candidate Audio| AAI
+    AAI -->|Transcribed Text| IS
+    IS -->|Memory Extraction| VS
 ```
 
-### 1. Resume Indexing Phase
-When a user uploads a PDF, the system parses the text, splits it into semantic chunks, generates 768-dimensional embeddings using Gemini, and stores them in **Endee Vector Database** with metadata.
+### 1. The Indexing Lifecycle
+When a user uploads a resume, the **Resume Service** performs semantic chunking. These chunks are transformed into vectors and stored in **Endee**, creating a searchable "knowledge base" of the user's professional history.
 
-### 2. Interview Generation Phase
-Upon launching an interview, the system queries Endee for the candidate's most relevant projects and skills for the target role. This context is injected into the Gemini 2.5 Flash prompt, ensuring questions are highly personalized.
+### 2. The Personalized Prompting Phase
+Unlike standard mock tools, HireSense doesn't just ask random questions. It queries the **Endee Vector DB** for the most relevant "Experience Chunks" based on the target role, injecting this ground-truth data into the AI's prompt.
 
-### 3. Real-time Feedback Phase
-As the user answers, the AI evaluates the response, extracts weak topics, and indexes them into an `interview_memory` index in Endee to personalize future sessions.
+### 3. The Feedback Loop
+Post-interview, the system analyzes the conversation history stored in MongoDB, calculates the **Combined Role Match**, and updates the user's "Weak Areas" memory to optimize future practice sessions.
 
 ## 🛠️ Technology Stack
 
-- **Frontend**: React.js, Vite, Vanilla CSS (Premium Dark Theme)
+- **Frontend**: React.js 18, Vite, Vanilla CSS (Custom Glassmorphism Design System)
 - **Backend**: Node.js, Express.js
-- **Database**: MongoDB (Structured Data) + Endee Vector Database (Vector Data)
-- **AI Services**: Google Gemini (LLM + Embeddings), AssemblyAI (STT), Murf AI (TTS)
+- **Database**: MongoDB (Structured Metadata) + Endee Vector Database (Semantic Knowledge)
+- **AI Models**: 
+  - **Generative**: Google Gemini 3.1 Flash-Lite
+  - **Embeddings**: Google text-embedding-004
+  - **Voice**: Murf AI (Natalie Voice Model)
+  - **Transcription**: AssemblyAI
 
 ## 🔧 Setup Instructions
 
 ### Prerequisites
 - Node.js (v18+)
-- MongoDB Atlas account
+- MongoDB Atlas Instance
 - Endee API Key ([app.endee.io](https://app.endee.io))
 - Google Gemini API Key ([aistudio.google.com](https://aistudio.google.com))
 
-### Backend Setup
-1. `cd server`
-2. `npm install`
-3. Create `.env` from `.env.example` and fill in your keys.
-4. `npm run dev`
-
-### Frontend Setup
-1. `cd client`
-2. `npm install`
-3. `npm run dev`
+### Installation
+1. **Clone the repository**
+2. **Backend Configuration**:
+   ```bash
+   cd server
+   npm install
+   # Create .env and add:
+   # PORT, MONGODB_URI, GEMINI_API_KEY, ENDEE_API_KEY, MURF_API_KEY
+   npm run dev
+   ```
+3. **Frontend Configuration**:
+   ```bash
+   cd client
+   npm install
+   npm run dev
+   ```
 
 ## 📊 Endee Index Configuration
-- **Resume Index**: `resume_chunks` (Dimension: 768)
-- **Memory Index**: `interview_memory` (Dimension: 768)
-- **Metric**: Cosine Similarity
+- **Resume Index**: `resume_chunks` (768 dimensions)
+- **Memory Index**: `interview_memory` (768 dimensions)
+- **Search Metric**: Cosine Similarity
 
 ---
 
-Developed with ❤️ for the **Endee + MongoDB Hackathon**.
+Developed with ❤️ for the **Endee + MongoDB AI Hackathon**.
