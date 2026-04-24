@@ -1,0 +1,117 @@
+.interview-card {
+  background-color: #161b22;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.interview-card:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  background: rgba(139, 92, 246, 0.02);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.interview-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.interview-card-role {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e6edf3;
+  margin: 0;
+}
+
+.interview-badge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-success {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.badge-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.interview-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.interview-card-date,
+.interview-card-questions {
+  font-size: 13px;
+  color: #8d96a0;
+}
+
+.interview-card-score {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: baseline;
+}
+
+.score-value {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.score-label {
+  font-size: 14px;
+  color: #484f58;
+  margin-left: 4px;
+  font-weight: 600;
+}
+
+.interview-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid #30363d;
+  margin-top: auto;
+}
+
+.interview-card-delete {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ef4444;
+  padding: 6px 12px;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.interview-card-delete:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.delete-icon {
+  font-size: 16px;
+}

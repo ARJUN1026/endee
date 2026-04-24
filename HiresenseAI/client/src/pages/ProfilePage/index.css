@@ -1,0 +1,131 @@
+.profile-page {
+  min-height: 100vh;
+  background-color: #0d1117;
+  color: #e6edf3;
+  padding: 60px 24px;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.profile-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profile-header p {
+  color: #8d96a0;
+  font-size: 16px;
+}
+
+.profile-card {
+  background: #161b22;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.mt-4 {
+  margin-top: 24px;
+}
+
+.profile-card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #e6edf3;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 12px;
+}
+
+/* Resume Active State */
+.resume-active {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  padding: 20px;
+  border-radius: 14px;
+}
+
+.resume-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.resume-info .file-icon {
+  font-size: 32px;
+  color: #a78bfa;
+}
+
+.resume-details h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e6edf3;
+  margin-bottom: 4px;
+}
+
+.resume-details p {
+  font-size: 13px;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.btn-update {
+  background: #21262d;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.btn-update:hover {
+  border-color: #8b5cf6;
+  color: #a78bfa;
+}
+
+/* AI Highlights */
+.ai-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.highlight-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.highlight-item .label {
+  color: #8d96a0;
+  font-weight: 600;
+}
+
+.highlight-item .value.badge {
+  background: rgba(139, 92, 246, 0.1);
+  color: #a78bfa;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
