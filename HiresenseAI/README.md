@@ -1,8 +1,24 @@
 # HireSense AI — AI-Powered Mock Interview Platform
 
-![HireSense AI Hero Banner](file:///C:/Users/arjun/.gemini/antigravity/brain/67fe88b6-314a-4894-add6-be9588597bfa/hiresense_hero_banner_1777060956640.png)
+![HireSense AI Hero Banner](./screenshots/hero.png)
 
 HireSense AI is a production-grade mock interview platform designed to elevate the job-seeking experience through semantic intelligence. By leveraging **Endee Vector Database** for long-term memory and **Gemini 3.1 Flash** for advanced reasoning, HireSense provides a deeply personalized, conversational interview experience that evolves with the user.
+
+## 📸 Platform Gallery
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="./screenshots/login.png" width="400px" /><br/><sub><b>Modern Authentication</b></sub></td>
+    <td align="center"><img src="./screenshots/dashboard.png" width="400px" /><br/><sub><b>Intelligent Dashboard</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="./screenshots/profile.png" width="400px" /><br/><sub><b>Semantic Profile Management</b></sub></td>
+    <td align="center"><img src="./screenshots/interview.png" width="400px" /><br/><sub><b>Real-time AI Interview</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2"><img src="./screenshots/insights.png" width="800px" /><br/><sub><b>Semantic Search & Role Analytics</b></sub></td>
+  </tr>
+</table>
 
 ## ✨ Key Features
 
